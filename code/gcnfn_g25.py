@@ -34,14 +34,14 @@ class Net(torch.nn.Module):
 		self.nhid = args.nhid
 		self.concat = concat
 
-		self.conv1 = GATConv(self.num_features, self.nhid * 2)
-		self.conv2 = GATConv(self.nhid * 2, self.nhid * 2)
+		self.conv1 = GATConv(self.num_features, self.nhid * 3)
+		self.conv2 = GATConv(self.nhid * 3, self.nhid * 3)
 
-		self.fc1 = Linear(self.nhid * 2, self.nhid)
+		self.fc1 = Linear(self.nhid * 3, self.nhid)
 
 		if self.concat:
 			self.fc0 = Linear(self.num_features, self.nhid)
-			self.fc1 = Linear(self.nhid * 2, self.nhid)
+			self.fc1 = Linear(self.nhid *3, self.nhid)
 
 		self.fc2 = Linear(self.nhid, self.num_classes)
 
@@ -92,9 +92,9 @@ parser.add_argument('--seed', type=int, default=777, help='random seed')
 parser.add_argument('--device', type=str, default='cuda:0', help='specify cuda devices')
 
 # hyper-parameters
-parser.add_argument('--dataset', type=str, default='politifact', help='[politifact, gossipcop]')
-parser.add_argument('--batch_size', type=int, default=128, help='batch size')
-parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
+parser.add_argument('--dataset', type=str, default='politifact', help='[politifact]')
+parser.add_argument('--batch_size', type=int, default=100, help='batch size')
+parser.add_argument('--lr', type=float, default=0.01, help='learning rate')
 parser.add_argument('--weight_decay', type=float, default=0.01, help='weight decay')
 parser.add_argument('--nhid', type=int, default=128, help='hidden size')
 parser.add_argument('--epochs', type=int, default=60, help='maximum number of epochs')
@@ -114,7 +114,7 @@ args.num_features = dataset.num_features
 
 print(args)
 
-num_training = int(len(dataset) * 0.2)
+num_training = int(len(dataset) * 0.3)
 num_val = int(len(dataset) * 0.1)
 num_test = len(dataset) - (num_training + num_val)
 training_set, validation_set, test_set = random_split(dataset, [num_training, num_val, num_test])
