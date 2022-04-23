@@ -114,7 +114,7 @@ args.num_features = dataset.num_features
 
 print(args)
 
-num_training = int(len(dataset) * 0.2)
+num_training = int(len(dataset) * 0.3)
 num_val = int(len(dataset) * 0.1)
 num_test = len(dataset) - (num_training + num_val)
 training_set, validation_set, test_set = random_split(dataset, [num_training, num_val, num_test])
