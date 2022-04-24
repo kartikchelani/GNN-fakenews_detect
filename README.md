@@ -9,5 +9,7 @@ This project uses a Graphical Neural Network which is the best route to go down 
 To run this code, 
 
 start by installing all the requirements and dependencies 
+
 put the data in the same directory as the python code
+
 there are four models in this repo they all use the base of a GNN.
