@@ -3,6 +3,8 @@
 ### this project has taken inspitration from the paper https://arxiv.org/pdf/1902.06673v1.pdf 
 ### and github code https://github.com/safe-graph/GNN-FakeNews
 
+For this project we only utilized the poltifact dataset.
+
 
 Per request by the author of the paper please cite the paper using the following command in your python file:
 @inproceedings{dou2021user,
