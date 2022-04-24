@@ -23,4 +23,7 @@ start by installing all the requirements and dependencies
 
 put the data in the same directory as the python code
 
-there are four models in this repo they all use the base of a GNN and run all models once a time using commands
+there are four models in this repo they all use the base of a GNN and run all models once a time using commands:
+
+python -u MODEL NAME --feature profile --epochs 60 --lr 0.001 --nhid 128 --batch_size 100 --dataset NAME_OF_DATASET
+Namespace(batch_size=128, dataset='politifact', epochs=60, feature='profile', lr=0.001, nhid=128, seed=777, weight_decay=0.001)
